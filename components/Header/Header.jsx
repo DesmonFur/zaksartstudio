@@ -25,7 +25,7 @@ function Header() {
           <BeakerIcon className="h-6 w-6" aria-hidden="true" />
         </Popover.Button>
       </div>
-      {/* <Popover.Overlay className="sm:hidden fixed inset-0 bg-black opacity-30"> */}
+      <Popover.Overlay className="sm:hidden fixed inset-0 bg-black opacity-30" />
       <Transition
         as={Fragment}
         enter="duration-200 ease-out"
@@ -85,7 +85,6 @@ function Header() {
           </div>
         </Popover.Panel>
       </Transition>
-      {/* </Popover.Overlay> */}
     </Popover>
   );
 }
