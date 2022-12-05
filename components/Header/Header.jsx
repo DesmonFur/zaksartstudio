@@ -12,11 +12,10 @@ function Header() {
     >
       <h1 className="text-2xl">Zak's Art Studio</h1>
       <div className="grow">
-        <div className="hidden sm:flex items-center justify-center gap-2 md:gap-8">
+        <div className="hidden sm:flex items-end justify-end gap-2 md:gap-24">
           <Link href="/">Home</Link>
           <Link href="about">About</Link>
-          <Link href="about">Contact</Link>
-          <Link href="about">Blog</Link>
+          <Link href="contact">Contact</Link>
         </div>
       </div>
       <div className="flex grow items-center justify-end sm:hidden">
@@ -67,12 +66,7 @@ function Header() {
                   >
                     About
                   </Link>
-                  <Link
-                    className="focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2"
-                    href="blog"
-                  >
-                    Blog
-                  </Link>
+
                   <Link
                     className="focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2"
                     href="contact"
