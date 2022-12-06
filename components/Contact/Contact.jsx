@@ -17,7 +17,7 @@ function Contact() {
   }
   return (
     <div>
-      <h3 className="text-2xls top-24 mt-12 animate-pulse text-center uppercase  tracking-[20px] text-[#F7AB0A] ">
+      <h3 className="top-24 mt-12 animate-pulse text-center text-2xl uppercase  tracking-[20px] text-[#F7AB0A] ">
         Contact
       </h3>
       <div className="relative mx-auto flex max-w-7xl items-center justify-evenly px-10  sm:flex-col md:flex-row ">

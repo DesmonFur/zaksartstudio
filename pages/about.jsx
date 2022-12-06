@@ -5,8 +5,8 @@ function About() {
   return (
     <>
       <Header />
-      <div className="flex relative flex-col text-center md:text-left md:flex-row max-w-77xl px-10 mx-auto items-center justify-evenly">
-        <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <div className="max-w-77xl relative mx-auto flex flex-col items-center justify-evenly px-10 text-center md:flex-row md:text-left">
+        <h3 className="top-24 mt-12 animate-pulse text-center text-2xl uppercase  tracking-[20px] text-[#F7AB0A] ">
           About Me
         </h3>
       </div>{" "}

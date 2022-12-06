@@ -7,12 +7,12 @@ function Header() {
   return (
     <Popover
       className={
-        "container mx-auto flex items-center border-b-2 px-6 py-2 h-24"
+        "container mx-auto flex h-24 items-center border-b-2 px-6 py-2"
       }
     >
       <h1 className="text-2xl">Zak's Art Studio</h1>
       <div className="grow">
-        <div className="hidden sm:flex items-end justify-end gap-2 md:gap-24">
+        <div className="hidden items-end justify-end gap-2 sm:flex md:gap-24">
           <Link href="/">Home</Link>
           <Link href="about">About</Link>
           <Link href="contact">Contact</Link>
@@ -24,7 +24,7 @@ function Header() {
           <BeakerIcon className="h-6 w-6" aria-hidden="true" />
         </Popover.Button>
       </div>
-      <Popover.Overlay className="sm:hidden fixed inset-0 bg-black opacity-30" />
+      <Popover.Overlay className="fixed inset-0 bg-black opacity-30 sm:hidden" />
       <Transition
         as={Fragment}
         enter="duration-200 ease-out"
@@ -38,7 +38,7 @@ function Header() {
           focus
           className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
         >
-          <div className="rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50 ">
+          <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 ">
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
                 <h1 className="font-bold text-black"> Zak's Art Studio</h1>
@@ -55,20 +55,20 @@ function Header() {
               <div className="mt-6 text-black">
                 <nav className="grid gap-y-8">
                   <Link
-                    className="focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2"
+                    className="px-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
                     href="/"
                   >
                     Home
                   </Link>
                   <Link
-                    className="focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2"
+                    className="px-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
                     href="about"
                   >
                     About
                   </Link>
 
                   <Link
-                    className="focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2"
+                    className="px-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
                     href="contact"
                   >
                     Contact
