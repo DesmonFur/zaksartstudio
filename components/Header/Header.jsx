@@ -14,8 +14,8 @@ function Header() {
       <div className="grow">
         <div className="hidden items-end justify-end gap-2 sm:flex md:gap-24">
           <Link href="/">Home</Link>
-          <Link href="about">About</Link>
-          <Link href="contact">Contact</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
         </div>
       </div>
       <div className="flex grow items-center justify-end sm:hidden">
@@ -24,7 +24,7 @@ function Header() {
           <BeakerIcon className="h-6 w-6" aria-hidden="true" />
         </Popover.Button>
       </div>
-      <Popover.Overlay className="fixed inset-0 bg-black opacity-30 sm:hidden" />
+      <Popover.Overlay className="fixed inset-0 bg-[#0E0E0E] opacity-30 sm:hidden" />
       <Transition
         as={Fragment}
         enter="duration-200 ease-out"

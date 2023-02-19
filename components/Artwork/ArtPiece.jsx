@@ -4,12 +4,12 @@ import Image from "next/image";
 
 function ArtPiece({ piece }) {
   return (
-    <div className="mt-12 text-center sm:h-64 sm:w-64 md:h-[19rem] md:w-[19rem] lg:h-[20rem] lg:w-[20rem] ">
+    <div className="mt-12 text-center sm:h-64 sm:w-64 md:h-[12rem] md:w-[19rem] lg:h-[25rem] lg:w-[25rem] ">
       <Image
         src={urlFor(piece.defaultProductVariant.images[0]).url()}
         layout=""
-        width={300}
-        height={300}
+        width={500}
+        height={500}
       />
       <h1>{piece.title}</h1>
     </div>
