@@ -43,8 +43,6 @@ function Artwork({ pieces }) {
     setFullScreenGallery(false);
   };
 
-  const pieceQuery = `*[_type == "product"]{_id, defaultProductVariant, title, variants, Description}`;
-
   return (
     <div>
       <h3 className="top-12 animate-pulse text-center text-2xl uppercase tracking-[20px] text-[#F7AB0A] ">
