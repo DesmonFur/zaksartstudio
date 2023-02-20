@@ -10,7 +10,6 @@ import MyModal from "../Modal/Dialog";
 import { sanityClient, urlFor } from "../../lib/sanity";
 import { createClient } from "next-sanity";
 import Image from "next/image";
-
 import ArtPiece from "./ArtPiece";
 function Artwork({ pieces }) {
   const [fullScreenGallery, setFullScreenGallery] = useState(false);
@@ -21,7 +20,7 @@ function Artwork({ pieces }) {
     setCurrentIndex(index);
     setFullScreenGallery(true);
   };
-
+  console.log(currentPiece);
   const setFullScreenPiece = (direction) => {
     console.log(currentPiece);
     if (currentIndex === pieces.length - 1) {
@@ -49,13 +48,13 @@ function Artwork({ pieces }) {
         Find your next favorite piece
       </h3>{" "}
       <main className="">
-        <div className="flex flex-col flex-wrap items-center justify-center lg:flex-row">
+        <div className="flex flex-col flex-wrap items-center justify-center sm:flex-row">
           {pieces.length > 0 && (
             <>
               {pieces.map((piece, index) => (
                 <div
                   key={piece._id}
-                  className="mx-auto flex w-[30vw] items-center justify-center "
+                  className="mx-auto flex  w-[60vw] items-center justify-center sm:w-[30vw] lg:w-[30vw]  "
                   onClick={() => setPiece(piece, index)}
                 >
                   <ArtPiece piece={piece} />
@@ -79,19 +78,11 @@ function Artwork({ pieces }) {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <div className="fixed inset-0 bg-white bg-opacity-75" />
+                  <div className="fixed inset-0 bg-gray-800 bg-opacity-50" />
                 </Transition.Child>
 
                 <div className="fixed inset-0 overflow-y-auto">
                   <div className="flex min-h-full items-center justify-center p-4 text-center">
-                    {/* piece info */}
-                    <div className="absolute left-[5%]  flex h-[40%] w-[25%] bg-blue-200 ">
-                      <div>
-                        <h1>{currentPiece.title}</h1>
-                        <p>{currentPiece.description}</p>
-                        <p>${currentPiece.defaultProductVariant.price}</p>
-                      </div>
-                    </div>
                     <Transition.Child
                       as={Fragment}
                       enter="ease-out duration-300"
@@ -101,23 +92,61 @@ function Artwork({ pieces }) {
                       leaveFrom="opacity-100 scale-100"
                       leaveTo="opacity-0 scale-95"
                     >
-                      <Dialog.Panel className="h-[70vh] w-[50vw]  transform  rounded-2xl bg-[#0E0E0E] p-6 text-left align-middle shadow-xl transition-all">
+                      <Dialog.Panel className="h-[90vh] w-[80vw] transform rounded-2xl bg-[#0E0E0E]  p-6 text-left align-middle shadow-xl transition-all sm:h-[70vh] sm:w-[50vw]">
+                        {/* piece info */}
+                        <div className="absolute right-[100%] top-[20%]  h-[60%] w-[40%] bg-gray-700">
+                          <div className="flex h-full flex-col items-center justify-center ">
+                            <ul>
+                              {/* {currentPiece.Description && (
+                                <li>
+                                  <span>Description: </span>{" "}
+                                  {
+                                    currentPiece.Description.en[0].children[0]
+                                      .text
+                                  }
+                                </li>
+                              )} */}
+                              {currentPiece.defaultProductVariant.grams >=
+                                1 && (
+                                <li className="mb-12">
+                                  {" "}
+                                  <span>Weight: </span>
+                                  {currentPiece.defaultProductVariant.grams}g
+                                </li>
+                              )}
+                              {currentPiece.defaultProductVariant
+                                .dimensions && (
+                                <li className="mb-12">
+                                  <span>Dimensions: </span>
+                                  {
+                                    currentPiece.defaultProductVariant
+                                      .dimensions
+                                  }
+                                </li>
+                              )}
+                              <li>
+                                {" "}
+                                <span>Price: </span>
+                                {currentPiece.defaultProductVariant.price
+                                  ? ` ${currentPiece.defaultProductVariant.price}`
+                                  : "Contact"}
+                              </li>
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
                         <Dialog.Title
                           as="h3"
-                          className="text-center text-lg font-medium leading-6 text-white"
+                          className="top-12 animate-pulse text-center text-2xl uppercase tracking-[20px] text-[#F7AB0A]"
                         >
-                          <h1>
-                            {currentPiece.title
-                              ? currentPiece.title
-                              : "Untitled"}
-                          </h1>
+                          {currentPiece.title ? currentPiece.title : "Untitled"}
                         </Dialog.Title>
                         <div className="min-width-[20vh] max-width-[20vw] group relative mx-auto flex h-full w-full flex-col   ">
                           <div
-                            className="mx-auto flex  items-center justify-between  "
+                            className="mx-auto flex  items-center justify-between"
                             onClick={() => setPiece(currentPiece, currentIndex)}
                           >
-                            <div className="mt-12 text-center text-white sm:h-64 sm:w-64 md:h-[12rem] md:w-[19rem] lg:h-[25rem] lg:w-[25rem] ">
+                            <div className="mt-12 flex flex-col text-center text-white sm:h-64 sm:w-64 md:h-[25rem] md:w-[25rem] lg:h-[25rem] lg:w-[30rem] ">
                               <Image
                                 src={urlFor(
                                   currentPiece.defaultProductVariant.images[0]
@@ -126,9 +155,23 @@ function Artwork({ pieces }) {
                                 width={500}
                                 height={500}
                               />
+                              <a
+                                className="btn btn-background-slide "
+                                href={
+                                  currentPiece.defaultProductVariant.paymentLink
+                                    ? currentPiece.defaultProductVariant
+                                        .paymentLink
+                                    : "/contact"
+                                }
+                                target="_blank"
+                              >
+                                {" "}
+                                Purchase{" "}
+                                <div className="btn-background-slide--orange btn-background-slide-bg"></div>{" "}
+                              </a>
                             </div>
                           </div>
-                          <div className="top-4 flex justify-center py-2">
+                          {/* <div className="top-4 flex justify-center py-2">
                             {pieces.map((piece, index) => (
                               <div key={index}>
                                 <RxDotFilled
@@ -137,8 +180,8 @@ function Artwork({ pieces }) {
                                 />
                               </div>
                             ))}
-                          </div>
-                          <div className="top-4 flex justify-start py-2">
+                          </div> */}
+                          {/* <div className="top-4 flex justify-start py-2">
                             <div className=" absolute right-[100%]  top-[45%]  -translate-x-0 translate-y-[50%] cursor-pointer rounded-full bg-white p-2 text-2xl text-black ">
                               <BsChevronCompactLeft
                                 size={30}
@@ -151,7 +194,7 @@ function Artwork({ pieces }) {
                                 onClick={() => setFullScreenPiece("right")}
                               />
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </Dialog.Panel>
                     </Transition.Child>
