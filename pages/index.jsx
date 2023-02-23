@@ -12,7 +12,7 @@ function HomePage({ pieces }) {
       <div className="mt-24 flex items-center justify-center">
         <Artwork pieces={pieces} />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

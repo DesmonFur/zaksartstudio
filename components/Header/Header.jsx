@@ -14,7 +14,7 @@ function Header() {
       <div className="grow">
         <div className="hidden items-end justify-end gap-2 sm:flex md:gap-24">
           <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
+          {/* <Link href="/about">About</Link> */}
           <Link href="/contact">Contact</Link>
         </div>
       </div>
@@ -36,7 +36,7 @@ function Header() {
       >
         <Popover.Panel
           focus
-          className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
+          className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition md:hidden"
         >
           <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 ">
             <div className="px-5 pt-5 pb-6">
@@ -60,12 +60,12 @@ function Header() {
                   >
                     Home
                   </Link>
-                  <Link
+                  {/* <Link
                     className="px-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
                     href="about"
                   >
                     About
-                  </Link>
+                  </Link> */}
 
                   <Link
                     className="px-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"

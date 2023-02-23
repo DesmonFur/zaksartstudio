@@ -11,6 +11,7 @@ import { sanityClient, urlFor } from "../../lib/sanity";
 import { createClient } from "next-sanity";
 import Image from "next/image";
 import ArtPiece from "./ArtPiece";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 function Artwork({ pieces }) {
   const [fullScreenGallery, setFullScreenGallery] = useState(false);
   const [currentPiece, setCurrentPiece] = useState(0);
@@ -100,10 +101,15 @@ function Artwork({ pieces }) {
                       <Dialog.Panel className="h-full w-full transform rounded-2xl bg-[#0E0E0E]  p-6 text-left align-middle shadow-xl transition-all sm:h-[90vh] sm:w-[80vw] lg:w-[70vw]">
                         <Dialog.Title
                           as="h3"
-                          className="top-12 animate-pulse text-center text-2xl uppercase tracking-[20px] text-[#F7AB0A]"
+                          className="top-24 mt-8 animate-pulse text-center text-2xl uppercase tracking-[20px] text-[#F7AB0A] sm:mt-12"
                         >
                           {currentPiece.title ? currentPiece.title : "Untitled"}
                         </Dialog.Title>
+                        <XMarkIcon
+                          className="absolute left-0 top-0 h-12 w-12 cursor-pointer py-2"
+                          aria-hidden="true"
+                          onClick={() => setFullScreenGallery(false)}
+                        ></XMarkIcon>
                         <div className="relative mx-auto flex h-[90%]  flex-col items-center justify-around">
                           <div
                             className="mx-auto flex  items-center justify-between"
