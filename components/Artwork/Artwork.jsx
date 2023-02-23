@@ -15,10 +15,15 @@ function Artwork({ pieces }) {
   const [fullScreenGallery, setFullScreenGallery] = useState(false);
   const [currentPiece, setCurrentPiece] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentMainImage, setCurrentMainImage] = useState(null);
   const setPiece = (piece, index) => {
     setCurrentPiece(piece);
     setCurrentIndex(index);
+    setCurrentMainImage(piece.defaultProductVariant.images[0]);
     setFullScreenGallery(true);
+  };
+  const setCurrentModalImage = (image) => {
+    setCurrentMainImage(image);
   };
   console.log(currentPiece);
   const setFullScreenPiece = (direction) => {
@@ -81,8 +86,8 @@ function Artwork({ pieces }) {
                   <div className="fixed inset-0 bg-gray-800 bg-opacity-50" />
                 </Transition.Child>
 
-                <div className="fixed inset-0 overflow-y-auto">
-                  <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <div className=" fixed inset-0 h-full overflow-y-auto">
+                  <div className="flex h-full items-center justify-center p-4 text-center">
                     <Transition.Child
                       as={Fragment}
                       enter="ease-out duration-300"
@@ -92,12 +97,50 @@ function Artwork({ pieces }) {
                       leaveFrom="opacity-100 scale-100"
                       leaveTo="opacity-0 scale-95"
                     >
-                      <Dialog.Panel className="h-[90vh] w-[80vw] transform rounded-2xl bg-[#0E0E0E]  p-6 text-left align-middle shadow-xl transition-all sm:h-[70vh] sm:w-[50vw]">
-                        {/* piece info */}
-                        <div className="absolute right-[100%] top-[20%]  h-[60%] w-[40%] bg-gray-700">
-                          <div className="flex h-full flex-col items-center justify-center ">
-                            <ul>
-                              {/* {currentPiece.Description && (
+                      <Dialog.Panel className="h-full w-full transform rounded-2xl bg-[#0E0E0E]  p-6 text-left align-middle shadow-xl transition-all sm:h-[90vh] sm:w-[80vw] lg:w-[70vw]">
+                        <Dialog.Title
+                          as="h3"
+                          className="top-12 animate-pulse text-center text-2xl uppercase tracking-[20px] text-[#F7AB0A]"
+                        >
+                          {currentPiece.title ? currentPiece.title : "Untitled"}
+                        </Dialog.Title>
+                        <div className="relative mx-auto flex h-[90%]  flex-col items-center justify-around">
+                          <div
+                            className="mx-auto flex  items-center justify-between"
+                            onClick={() => setPiece(currentPiece, currentIndex)}
+                          >
+                            <div className="mt-12 flex w-[18rem] flex-col text-center text-white sm:h-64 sm:w-64 md:h-[20rem] md:w-[20rem] lg:h-[25rem] lg:w-[30rem] ">
+                              <Image
+                                src={urlFor(currentMainImage).url()}
+                                layout=""
+                                width={500}
+                                height={500}
+                              />
+                            </div>
+                          </div>
+                          <div className="flex justify-center gap-4 py-2">
+                            {currentPiece.defaultProductVariant.images.map(
+                              (piece, index) => (
+                                <div
+                                  key={index}
+                                  className=" cursor-pointer"
+                                  onClick={() => setCurrentModalImage(piece)}
+                                >
+                                  <Image
+                                    src={urlFor(piece).url()}
+                                    layout=""
+                                    width={50}
+                                    height={50}
+                                  />
+                                </div>
+                              )
+                            )}
+                          </div>
+                          {/* piece info */}
+                          <div className=" mb-2 text-center md:mt-2 lg:h-full ">
+                            <div className="flex flex-col items-center justify-center ">
+                              <ul>
+                                {/* {currentPiece.Description && (
                                 <li>
                                   <span>Description: </span>{" "}
                                   {
@@ -106,71 +149,49 @@ function Artwork({ pieces }) {
                                   }
                                 </li>
                               )} */}
-                              {currentPiece.defaultProductVariant.grams >=
-                                1 && (
-                                <li className="mb-12">
+                                {currentPiece.defaultProductVariant.grams >=
+                                  1 && (
+                                  <li className="mb-2">
+                                    {" "}
+                                    {currentPiece.defaultProductVariant.grams}g
+                                  </li>
+                                )}
+                                {currentPiece.defaultProductVariant
+                                  .dimensions && (
+                                  <li className="mb-2">
+                                    {
+                                      currentPiece.defaultProductVariant
+                                        .dimensions
+                                    }
+                                  </li>
+                                )}
+                                <li>
                                   {" "}
-                                  <span>Weight: </span>
-                                  {currentPiece.defaultProductVariant.grams}g
+                                  {currentPiece.defaultProductVariant.price
+                                    ? ` $${currentPiece.defaultProductVariant.price}`
+                                    : "Contact"}
                                 </li>
-                              )}
-                              {currentPiece.defaultProductVariant
-                                .dimensions && (
-                                <li className="mb-12">
-                                  <span>Dimensions: </span>
-                                  {
-                                    currentPiece.defaultProductVariant
-                                      .dimensions
-                                  }
-                                </li>
-                              )}
-                              <li>
-                                {" "}
-                                <span>Price: </span>
-                                {currentPiece.defaultProductVariant.price
-                                  ? ` ${currentPiece.defaultProductVariant.price}`
-                                  : "Contact"}
-                              </li>
-                              <li></li>
-                            </ul>
-                          </div>
-                        </div>
-                        <Dialog.Title
-                          as="h3"
-                          className="top-12 animate-pulse text-center text-2xl uppercase tracking-[20px] text-[#F7AB0A]"
-                        >
-                          {currentPiece.title ? currentPiece.title : "Untitled"}
-                        </Dialog.Title>
-                        <div className="min-width-[20vh] max-width-[20vw] group relative mx-auto flex h-full w-full flex-col   ">
-                          <div
-                            className="mx-auto flex  items-center justify-between"
-                            onClick={() => setPiece(currentPiece, currentIndex)}
-                          >
-                            <div className="mt-12 flex flex-col text-center text-white sm:h-64 sm:w-64 md:h-[25rem] md:w-[25rem] lg:h-[25rem] lg:w-[30rem] ">
-                              <Image
-                                src={urlFor(
-                                  currentPiece.defaultProductVariant.images[0]
-                                ).url()}
-                                layout=""
-                                width={500}
-                                height={500}
-                              />
-                              <a
-                                className="btn btn-background-slide "
-                                href={
-                                  currentPiece.defaultProductVariant.paymentLink
-                                    ? currentPiece.defaultProductVariant
-                                        .paymentLink
-                                    : "/contact"
-                                }
-                                target="_blank"
-                              >
-                                {" "}
-                                Purchase{" "}
-                                <div className="btn-background-slide--orange btn-background-slide-bg"></div>{" "}
-                              </a>
+                                <li></li>
+                              </ul>
                             </div>
                           </div>
+                          <div>
+                            <a
+                              href={
+                                currentPiece.defaultProductVariant.paymentLink
+                                  ? currentPiece.defaultProductVariant
+                                      .paymentLink
+                                  : "/contact"
+                              }
+                              target="_blank"
+                            >
+                              <button className="btn btn-background-slide ">
+                                Purchase
+                                <div className="btn-background-slide--orange btn-background-slide-bg"></div>{" "}
+                              </button>
+                            </a>
+                          </div>
+
                           {/* <div className="top-4 flex justify-center py-2">
                             {pieces.map((piece, index) => (
                               <div key={index}>

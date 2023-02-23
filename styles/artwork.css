@@ -11,8 +11,8 @@
   height: 50px;
   color: rgb(255, 166, 13);
   text-align: center;
-  position: absolute;
-  bottom: 5%;
+  position: relative;
+  top: 59%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 2px solid rgb(242, 176, 8);
