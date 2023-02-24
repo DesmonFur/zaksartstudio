@@ -53,21 +53,27 @@ function Artwork({ pieces }) {
       <h3 className="top-12 animate-pulse text-center text-2xl uppercase tracking-[20px] text-[#F7AB0A] ">
         Find your next favorite piece
       </h3>{" "}
-      <main className="">
-        <div className="flex flex-col flex-wrap items-center justify-center sm:flex-row">
+      <main className=" ">
+        <div className=" mt-12 flex flex-col  flex-wrap items-center justify-center  gap-12 gap-x-[2vw] sm:flex-row ">
           {pieces.length > 0 && (
             <>
               {pieces.map((piece, index) => (
                 <div
                   key={piece._id}
-                  className="mx-auto flex  w-[60vw] items-center justify-center sm:w-[30vw] lg:w-[30vw]  "
+                  className="max-h-[800px]  max-w-[300px] cursor-pointer  md:max-h-[500px] md:max-w-[350px] lg:ml-[2vw] lg:mr-[2vw] lg:max-w-[450px] "
                   onClick={() => setPiece(piece, index)}
                 >
-                  <ArtPiece piece={piece} />
+                  <ArtPiece
+                    piece={piece}
+                    onClick={() => setPiece(piece, index)}
+                  />
                 </div>
               ))}
             </>
           )}
+        </div>
+
+        <div className="flex  flex-wrap items-center justify-center">
           {fullScreenGallery && (
             <Transition appear show={fullScreenGallery} as={Fragment}>
               <Dialog
