@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+@import "~react-image-gallery/styles/css/image-gallery.css";
 html,
 body {
   padding: 0;
@@ -25,6 +26,7 @@ a {
   }
   body {
     color: white;
+    background-color: #101010;
   }
 }
 

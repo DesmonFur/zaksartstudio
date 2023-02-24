@@ -4,12 +4,35 @@ import Footer from "../components/Footer/Footer";
 import Artwork from "../components/Artwork/Artwork";
 import { fetchPieces } from "./api/apiUtils/getPieces";
 import { createClient } from "next-sanity";
+import ImageGallery from "react-image-gallery";
+import bgImage from "../public/bg-image.png";
 
 function HomePage({ pieces }) {
+  const images = [
+    {
+      original:
+        "https://res.cloudinary.com/notio/image/upload/c_scale,h_5000,q_100,w_5000/v1677219877/zaksartstudio/Untitled_design_1_azpk8i.png",
+      thumbnail: "https://picsum.photos/id/1018/250/150/",
+    },
+    {
+      original:
+        "https://res.cloudinary.com/notio/image/upload/v1677219843/zaksartstudio/Untitled_design_3_nuvukp.png",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+    },
+    {
+      original:
+        "https://res.cloudinary.com/notio/image/upload/v1677219840/zaksartstudio/Untitled_design_2_wig0tv.png",
+      thumbnail: "https://picsum.photos/id/1019/250/150/",
+    },
+  ];
   return (
     <>
-      <Header />
-      <div className="mt-24 flex items-center justify-center">
+      <div className="flex h-[90vh] w-full">
+        <div className="flex-1  bg-hero bg-cover bg-center bg-no-repeat opacity-75">
+          <Header />
+        </div>
+      </div>
+      <div className="mt-12">
         <Artwork pieces={pieces} />
       </div>
       <Footer />

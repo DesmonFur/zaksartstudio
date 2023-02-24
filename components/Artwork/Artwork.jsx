@@ -26,9 +26,7 @@ function Artwork({ pieces }) {
   const setCurrentModalImage = (image) => {
     setCurrentMainImage(image);
   };
-  console.log(currentPiece);
   const setFullScreenPiece = (direction) => {
-    console.log(currentPiece);
     if (currentIndex === pieces.length - 1) {
       setCurrentIndex(0);
       setCurrentPiece(pieces.at(0));
