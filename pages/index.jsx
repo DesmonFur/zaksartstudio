@@ -27,7 +27,7 @@ function HomePage({ pieces }) {
   return (
     <>
       <div className="flex h-[90vh] w-full">
-        <div className="flex-1  bg-hero bg-cover bg-center bg-no-repeat opacity-75">
+        <div className="flex-1 bg-heroMobile bg-cover bg-center bg-no-repeat opacity-75 sm:bg-hero">
           <Header />
         </div>
       </div>
