@@ -5,7 +5,6 @@ import Artwork from "../components/Artwork/Artwork";
 import { fetchPieces } from "./api/apiUtils/getPieces";
 import { createClient } from "next-sanity";
 import ImageGallery from "react-image-gallery";
-import bgImage from "../public/bg-image.png";
 
 function HomePage({ pieces }) {
   const images = [
