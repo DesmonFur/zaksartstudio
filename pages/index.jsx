@@ -27,7 +27,7 @@ function HomePage({ pieces }) {
   return (
     <>
       <div className="flex h-[90vh] w-full ">
-        <div className="flex-1 bg-heroMobile bg-cover bg-center bg-no-repeat opacity-75 sm:bg-hero">
+        <div className="flex-1 bg-heroMobile bg-cover bg-center bg-no-repeat  sm:bg-hero">
           <Header />
         </div>
       </div>
@@ -44,7 +44,7 @@ const client = createClient({
   dataset: "production",
   apiVersion: "2022-03-25",
 
-  useCdn: true,
+  useCdn: false,
 });
 const pieceQuery = `*[_type == "product"]|order(listOrder asc){_id, defaultProductVariant, title, variants, description, listOrder}`;
 
@@ -56,7 +56,6 @@ export const getStaticProps = async () => {
     props: {
       pieces,
     },
-    revalidate: 10,
   };
 };
 

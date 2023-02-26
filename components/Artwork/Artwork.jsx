@@ -49,7 +49,7 @@ function Artwork({ pieces }) {
 
   return (
     <div className="font-climateCrisis ">
-      <h3 className="top-12 animate-pulse text-center font-climateCrisis text-2xl uppercase tracking-[15px] text-[#F7AB0A]">
+      <h3 className="top-12 mx-auto w-[90%] animate-pulse text-center  font-playFairDisplay text-2xl tracking-[15px] text-[#F7AB0A]">
         Find your next favorite piece
       </h3>{" "}
       <main className=" ">
@@ -77,7 +77,7 @@ function Artwork({ pieces }) {
             <Transition appear show={fullScreenGallery} as={Fragment}>
               <Dialog
                 as="div"
-                className="relative z-10 font-climateCrisis"
+                className="relative z-10 font-playFairDisplay"
                 onClose={closeFullScreenGallery}
               >
                 <Transition.Child
@@ -153,7 +153,7 @@ function Artwork({ pieces }) {
                               <div className=" absolute right-0 left-0 top-[90%] border-t-4 border-white md:mx-auto md:w-[50%]"></div>
                               <ul>
                                 {currentPiece.description && (
-                                  <li className="mx-auto w-[100%] text-lg  sm:w-[70%] sm:text-xl md:w-[70%] md:text-xl">
+                                  <li className="h-30 mx-auto mt-10 w-[100%]  overflow-y-auto text-lg sm:w-[70%] sm:text-xl md:w-[70%] md:text-xl">
                                     {
                                       currentPiece.description[0].children[0]
                                         .text
@@ -186,9 +186,8 @@ function Artwork({ pieces }) {
                               </ul>
                             </div>
                           </div>
-                          <div className="absolute right-0 left-0  top-[97%]">
+                          <div className="">
                             <a
-                              // className="absolute right-0 left-0  top-[97%]"
                               href={
                                 currentPiece.defaultProductVariant.paymentLink
                                   ? currentPiece.defaultProductVariant
@@ -197,9 +196,8 @@ function Artwork({ pieces }) {
                               }
                               target="_blank"
                             >
-                              <button className="btn btn-background-slide absolute right-0 left-0  top-[97%]  ">
+                              <button className="btn btn-background-slide  ">
                                 Purchase
-                                <div className="btn-background-slide--orange btn-background-slide-bg "></div>{" "}
                               </button>
                             </a>
                           </div>
