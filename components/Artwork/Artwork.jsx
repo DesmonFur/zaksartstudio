@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 // import { sanityClient, urlFor } from "@sanity/client";
 import { Dialog, Transition } from "@headlessui/react";
 import Img from "next/image";
@@ -22,6 +22,7 @@ function Artwork({ pieces }) {
     setCurrentIndex(index);
     setCurrentMainImage(piece.defaultProductVariant.images[0]);
     setFullScreenGallery(true);
+    console.log(currentPiece);
   };
   const setCurrentModalImage = (image) => {
     setCurrentMainImage(image);
@@ -47,8 +48,8 @@ function Artwork({ pieces }) {
   };
 
   return (
-    <div>
-      <h3 className="top-12 animate-pulse text-center text-2xl uppercase tracking-[20px] text-[#F7AB0A] ">
+    <div className="font-climateCrisis ">
+      <h3 className="top-12 animate-pulse text-center font-climateCrisis text-2xl uppercase tracking-[15px] text-[#F7AB0A]">
         Find your next favorite piece
       </h3>{" "}
       <main className=" ">
@@ -76,7 +77,7 @@ function Artwork({ pieces }) {
             <Transition appear show={fullScreenGallery} as={Fragment}>
               <Dialog
                 as="div"
-                className="relative z-10"
+                className="relative z-10 font-climateCrisis"
                 onClose={closeFullScreenGallery}
               >
                 <Transition.Child
@@ -102,10 +103,10 @@ function Artwork({ pieces }) {
                       leaveFrom="opacity-100 scale-100"
                       leaveTo="opacity-0 scale-95"
                     >
-                      <Dialog.Panel className="h-full w-full transform rounded-2xl bg-[#0E0E0E]  p-6 text-left align-middle shadow-xl transition-all sm:h-[90vh] sm:w-[80vw] lg:w-[70vw]">
+                      <Dialog.Panel className="h-full w-full transform rounded-2xl bg-[#0E0E0E] p-6 text-left align-middle shadow-xl transition-all sm:h-[90vh] md:w-[80vw] lg:w-[70vw]">
                         <Dialog.Title
                           as="h3"
-                          className="top-24 mt-8 animate-pulse text-center text-2xl uppercase tracking-[20px] text-[#F7AB0A] sm:mt-12"
+                          className="top-24 mt-2 animate-pulse text-center text-2xl uppercase tracking-[20px] text-[#F7AB0A] sm:mt-12"
                         >
                           {currentPiece.title ? currentPiece.title : "Untitled"}
                         </Dialog.Title>
@@ -119,7 +120,7 @@ function Artwork({ pieces }) {
                             className="mx-auto flex  items-center justify-between"
                             onClick={() => setPiece(currentPiece, currentIndex)}
                           >
-                            <div className="mt-12 flex w-[18rem] flex-col text-center text-white sm:h-64 sm:w-64 md:h-[20rem] md:w-[20rem] lg:h-[25rem] lg:w-[30rem] ">
+                            <div className=" mt-2 flex w-[18rem] flex-col text-center text-white sm:h-64 sm:w-64 md:h-[20rem] md:w-[20rem] lg:mt-12 lg:h-[25rem] lg:w-[25rem] ">
                               <Image
                                 src={urlFor(currentMainImage).url()}
                                 layout=""
@@ -136,46 +137,46 @@ function Artwork({ pieces }) {
                                   className=" cursor-pointer"
                                   onClick={() => setCurrentModalImage(piece)}
                                 >
-                                  <Image
+                                  {/* <Image
                                     src={urlFor(piece).url()}
                                     layout=""
                                     width={50}
                                     height={50}
-                                  />
+                                  /> */}
                                 </div>
                               )
                             )}
                           </div>
                           {/* piece info */}
-                          <div className=" mb-2 text-center md:mt-2 lg:h-full ">
+                          <div className=" mb-24 h-[30%] text-center text-[#fefefe] md:mt-2 lg:h-full">
                             <div className="flex flex-col items-center justify-center ">
+                              <div className=" absolute right-0 left-0 top-[90%] border-t-4 border-white md:mx-auto md:w-[50%]"></div>
                               <ul>
-                                {/* {currentPiece.Description && (
-                                <li>
-                                  <span>Description: </span>{" "}
-                                  {
-                                    currentPiece.Description.en[0].children[0]
-                                      .text
-                                  }
-                                </li>
-                              )} */}
+                                {currentPiece.description && (
+                                  <li className="mx-auto w-[100%] text-lg  sm:w-[70%] sm:text-xl md:w-[70%] md:text-xl">
+                                    {
+                                      currentPiece.description[0].children[0]
+                                        .text
+                                    }
+                                  </li>
+                                )}
                                 {currentPiece.defaultProductVariant.grams >=
                                   1 && (
-                                  <li className="mb-2">
+                                  <li className="absolute bottom-[10%] right-0 mb-2 text-sm md:right-[25%]">
                                     {" "}
                                     {currentPiece.defaultProductVariant.grams}g
                                   </li>
                                 )}
                                 {currentPiece.defaultProductVariant
                                   .dimensions && (
-                                  <li className="mb-2">
+                                  <li className="absolute bottom-[10%] left-0  mb-2 text-sm md:left-[25%]">
                                     {
                                       currentPiece.defaultProductVariant
                                         .dimensions
                                     }
                                   </li>
                                 )}
-                                <li>
+                                <li className="absolute bottom-[10%] left-0 right-0  mb-2 text-3xl text-[#F7AB0A] ">
                                   {" "}
                                   {currentPiece.defaultProductVariant.price
                                     ? ` $${currentPiece.defaultProductVariant.price}`
@@ -185,7 +186,7 @@ function Artwork({ pieces }) {
                               </ul>
                             </div>
                           </div>
-                          <div>
+                          <div className="absolute right-0 left-0  top-[97%]">
                             <a
                               href={
                                 currentPiece.defaultProductVariant.paymentLink
@@ -195,7 +196,7 @@ function Artwork({ pieces }) {
                               }
                               target="_blank"
                             >
-                              <button className="btn btn-background-slide ">
+                              <button className="btn btn-background-slide  ">
                                 Purchase
                                 <div className="btn-background-slide--orange btn-background-slide-bg"></div>{" "}
                               </button>

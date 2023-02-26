@@ -7,7 +7,7 @@ function Header() {
   return (
     <Popover
       className={
-        "container mx-auto flex h-24 items-center border-b-2 px-6 py-2"
+        "container mx-auto flex h-24 items-center border-b-2 px-6 py-2 font-climateCrisis  "
       }
     >
       <h1 className="text-2xl">Zak's Art Studio</h1>

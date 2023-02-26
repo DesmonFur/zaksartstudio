@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { groq } from "next-sanity";
 import { sanityClient } from "../../lib/sanity";
 
-const pieceQuery = groq`*[_type == "product"]{_id, defaultProductVariant, title, variants, description}`;
+const pieceQuery = groq`*[_type == "product"]{_id, defaultProductVariant, title, variants, description, listOrder}`;
 
 export default async function handler(req, res) {
   const pieces = await sanityClient.fetch(pieceQuery);

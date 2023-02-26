@@ -13,6 +13,10 @@ module.exports = {
         heroMobile:
           "url('https://res.cloudinary.com/notio/image/upload/v1677221472/zaksartstudio/Hero%20Image%20Mobile.png')",
       },
+      fontFamily: {
+        climateCrisis: ["Climate Crisis", "cursive"],
+        playFairDisplay: ["Playfair Display", "serif"],
+      },
     },
   },
   corePlugins: {
