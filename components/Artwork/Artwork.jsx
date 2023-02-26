@@ -188,6 +188,7 @@ function Artwork({ pieces }) {
                           </div>
                           <div className="absolute right-0 left-0  top-[97%]">
                             <a
+                              // className="absolute right-0 left-0  top-[97%]"
                               href={
                                 currentPiece.defaultProductVariant.paymentLink
                                   ? currentPiece.defaultProductVariant
@@ -196,9 +197,9 @@ function Artwork({ pieces }) {
                               }
                               target="_blank"
                             >
-                              <button className="btn btn-background-slide  ">
+                              <button className="btn btn-background-slide absolute right-0 left-0  top-[97%]  ">
                                 Purchase
-                                <div className="btn-background-slide--orange btn-background-slide-bg"></div>{" "}
+                                <div className="btn-background-slide--orange btn-background-slide-bg "></div>{" "}
                               </button>
                             </a>
                           </div>
