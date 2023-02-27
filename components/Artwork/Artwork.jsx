@@ -51,7 +51,9 @@ function Artwork({ pieces }) {
   const components = {
     list: {
       // Ex. 1: customizing common list types
-      bullet: ({ children }) => <ul className="mt-xl">{children}</ul>,
+      bullet: ({ children }) => (
+        <ul className="mt-xl list-disc	marker:text-white ">{children}</ul>
+      ),
       number: ({ children }) => <ol className="mt-lg">{children}</ol>,
 
       // Ex. 2: rendering custom lists
@@ -128,7 +130,7 @@ function Artwork({ pieces }) {
                           aria-hidden="true"
                           onClick={() => setFullScreenGallery(false)}
                         ></XMarkIcon>
-                        <div className="relative mx-auto flex h-[90%]  flex-col items-center justify-around md:flex-row">
+                        <div className="relative mx-auto flex h-[90%] flex-col  items-center justify-around md:h-[85%] md:flex-row">
                           <div
                             className="mx-auto flex  items-center justify-between"
                             onClick={() => setPiece(currentPiece, currentIndex)}
