@@ -47,7 +47,7 @@ function Contact() {
                 contact them through email or filling out the form below. Thanks
                 for reaching out!
               </span>
-              <span className="">Email: zakzeoli@gmail.com</span>
+              <span className="">zakzeoli@gmail.com</span>
             </div>
           </div>
           <div className="">
