@@ -5,7 +5,7 @@ import Artwork from "../components/Artwork/Artwork";
 import { fetchPieces } from "./api/apiUtils/getPieces";
 import { createClient } from "next-sanity";
 import ImageGallery from "react-image-gallery";
-
+import { BsChevronDown } from "react-icons/bs";
 function HomePage({ pieces }) {
   const images = [
     {
@@ -29,6 +29,9 @@ function HomePage({ pieces }) {
       <div className="flex h-[90vh] w-full ">
         <div className="flex-1 bg-heroMobile bg-cover bg-center bg-no-repeat  sm:bg-hero">
           <Header />
+          <div className=" absolute right-0 left-0 bottom-[12vh] mx-auto w-[8%] animate-pulse text-white ">
+            <BsChevronDown size={40} />
+          </div>
         </div>
       </div>
       <div className="mt-12">
