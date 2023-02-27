@@ -13,12 +13,12 @@ function Header() {
         "container z-50 mx-auto flex h-24 items-center border-b-2 px-6 py-2 font-playFairDisplay  "
       }
     >
-      <h1 className="text-[#000 text-xl">Zachary Zeoli</h1>
+      <h1 className="text-[#000 text-2xl">Zachary Zeoli</h1>
       <div className="grow">
         <div className="hidden items-end justify-end gap-2 sm:flex md:gap-24">
           <Link href="/">Home</Link>
           {/* <Link href="/about">About</Link> */}
-          <Link className="" href="shipping">
+          <Link className="" href="/shipping">
             Shipping
           </Link>
           <Link href="/contact">Contact</Link>
@@ -72,18 +72,17 @@ function Header() {
                   >
                     About
                   </Link> */}
-
-                  <Link
-                    className="px-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
-                    href="contact"
-                  >
-                    Contact
-                  </Link>
                   <Link
                     className="px-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
                     href="shipping"
                   >
                     Shipping
+                  </Link>
+                  <Link
+                    className="px-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+                    href="contact"
+                  >
+                    Contact
                   </Link>
                 </nav>
               </div>

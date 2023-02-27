@@ -20,11 +20,11 @@ function Contact() {
       {/* <h3 className="top-24 mt-12 animate-pulse text-center text-2xl uppercase  tracking-[20px] text-[#F7AB0A] ">
         Contact
       </h3> */}
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-evenly  px-10 md:flex-row ">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-evenly  px-10 xl:flex-row ">
         <div className="relative  mt-4 flex max-w-7xl items-center  justify-evenly ">
-          <div className="text-left  md:mt-12 md:mr-12  ">
+          <div className=" text-left  md:mt-12 md:mr-12  ">
             <img
-              src="https://res.cloudinary.com/notio/image/upload/v1677490573/zaksartstudio/contact_image_hma9y8.png"
+              src="https://res.cloudinary.com/notio/image/upload/v1677533592/zaksartstudio/IMG_0399_m1s9rv.png"
               alt="contact image"
               className="h-full w-full object-cover sm:h-full sm:w-full"
             />
@@ -36,9 +36,9 @@ function Contact() {
             /> */}
           </div>
         </div>
-        <div className="relative mx-auto mt-12 flex max-w-min flex-col items-start justify-evenly ">
+        <div className="relative mx-auto mt-12 flex max-w-min flex-col items-start justify-evenly sm:max-w-lg ">
           <div className=" flex flex-col space-y-10">
-            <h4 className="text-4xl font-semibold underline decoration-[#F7AB0A]/50">
+            <h4 className="text-4xl font-semibold underline decoration-[#F7AB0A]/50 sm:text-center">
               Get in touch
             </h4>
             <div className="flex flex-col space-y-10 ">
@@ -48,7 +48,11 @@ function Contact() {
               </span>
               <span className="">
                 Please reach out with questions regarding specific orders or
-                pieces, payment or shipping (click here for shipping policy).*
+                pieces, payment or shipping (click{" "}
+                <a className="text-[#F7AB0A]" href="/shipping">
+                  here
+                </a>{" "}
+                for shipping policy).*
               </span>
               <span className="">
                 Please put the word “commission” in the subject line if you wish
@@ -101,37 +105,37 @@ function Contact() {
                 <div>
                   <input name="first-name" className=" contact-input" />
                   <label
-                    for="first-name"
+                    htmlFor="first-name"
                     className="mt-1 inline-block text-sm text-white sm:text-xs"
                   >
                     First Name
                   </label>
                 </div>
                 <div>
-                  <input name="first-name" className=" contact-input" />
+                  <input name="last-name" className=" contact-input" />
                   <label
-                    for="first-name"
+                    htmlFor="last-name"
                     className="mt-1 inline-block text-sm text-white sm:text-xs"
                   >
                     Last Name
                   </label>
                 </div>
               </div>
-              <label for="email"> Your Email *</label>
+              <label htmlFor="email"> Your Email *</label>
               <div>
                 <input
                   name="email"
                   className=" contact-input contact-full-width-input"
                 />
               </div>
-              <label for="subject"> Subject Line *</label>
+              <label htmlFor="subject"> Subject Line *</label>
               <div>
                 <input
                   name="subject"
                   className=" contact-input contact-full-width-input"
                 />
               </div>
-              <label for="message">Message *</label>
+              <label htmlFor="message">Message *</label>
               <div>
                 <input
                   className=" contact-input contact-full-width-input"

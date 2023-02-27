@@ -4,11 +4,11 @@ import Link from "next/link";
 function Footer() {
   return (
     <div className="container mx-auto mt-12 flex h-24 items-center justify-center border-t-2 font-playFairDisplay">
-      <span className="text-xl">Zachary Zeoli</span>
-      <div className="ml-12">
+      <span className="text-2xl">Zachary Zeoli</span>
+      <div className="ml-4">
         <Link href="/contact">Contact</Link>
       </div>
-      <div className="ml-12">
+      <div className="ml-4">
         <Link href="/shipping">Shipping</Link>
       </div>
     </div>
