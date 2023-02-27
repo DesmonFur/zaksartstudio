@@ -17,33 +17,37 @@ function Contact() {
   }
   return (
     <div>
-      <h3 className="top-24 mt-12 animate-pulse text-center text-2xl uppercase  tracking-[20px] text-[#F7AB0A] ">
+      {/* <h3 className="top-24 mt-12 animate-pulse text-center text-2xl uppercase  tracking-[20px] text-[#F7AB0A] ">
         Contact
-      </h3>
-      <div className="relative mx-auto flex max-w-7xl items-center justify-evenly px-10  sm:flex-col md:flex-row ">
-        <div className="relative  mt-12 flex max-w-7xl items-center  justify-evenly ">
-          <div className="mt-12 sm:h-64 sm:w-64 md:h-[19rem] md:w-[19rem] lg:h-[30rem] lg:w-[30rem] ">
-            <Image
+      </h3> */}
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-evenly  px-10 md:flex-row ">
+        <div className="relative  mt-4 flex max-w-7xl items-center  justify-evenly ">
+          <div className="text-left  md:mt-12 md:mr-12  ">
+            <img
+              src="https://images.unsplash.com/photo-1629627262826-7e2e7c4db12e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+              alt=""
+              className="h-full w-full object-cover sm:h-full sm:w-full"
+            />
+            {/* <Image
               src="https://images.unsplash.com/photo-1669846840815-eac9fa239eb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzOHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"
               layout="fill"
-            />
+              height={500}
+              width={500}
+            /> */}
           </div>
         </div>
-        <div className="relative mx-auto flex max-w-min flex-col items-start justify-evenly  ">
-          <div className="mt-12 flex flex-col space-y-10">
-            <h4 className="text-center text-4xl font-semibold underline decoration-[#F7AB0A]/50">
+        <div className="relative mx-auto mt-12 flex max-w-min flex-col items-start justify-evenly ">
+          <div className=" flex flex-col space-y-10">
+            <h4 className="text-4xl font-semibold underline decoration-[#F7AB0A]/50">
               Get in touch
             </h4>
             <div className="flex flex-col space-y-10 ">
               <span className="">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt, debitis doloremque necessitatibus soluta iste eum
-                omnis odit recusandae totam rem tempore nostrum in voluptatum
-                fugiat excepturi, id ex facilis quasi?
+                Contact the artist by filling out the information below. You may
+                contact them through email or filling out the form below. Thanks
+                for reaching out!
               </span>
-              <span className="">
-                Email me at milkywaymoney@love.com or fill out the form below
-              </span>
+              <span className="">Email: zakzeoli@gmail.com</span>
             </div>
           </div>
           <div className="">
@@ -101,7 +105,7 @@ function Contact() {
               />
               <button
                 type="submit"
-                className="rounded-md bg-[#F7AB0A] py-5 px-10 font-bold text-black duration-300 hover:scale-105"
+                className="w-[50%] rounded-md bg-[#F7AB0A] py-5 px-10 font-bold text-black duration-300 hover:scale-105 md:w-[100%]"
                 disabled={state.submitting}
               >
                 {" "}

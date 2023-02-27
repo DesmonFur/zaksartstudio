@@ -5,6 +5,7 @@ import { BeakerIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMenuOutline } from "react-icons/io5";
 import { RiMenuLine } from "react-icons/ri";
+
 function Header() {
   return (
     <Popover
@@ -12,7 +13,7 @@ function Header() {
         "container z-50 mx-auto flex h-24 items-center border-b-2 px-6 py-2 font-playFairDisplay  "
       }
     >
-      <h1 className="text-[#000 text-2xl">Zak's Art Studio</h1>
+      <h1 className="text-[#000 text-xl">Zachary Zeoli</h1>
       <div className="grow">
         <div className="hidden items-end justify-end gap-2 sm:flex md:gap-24">
           <Link href="/">Home</Link>
@@ -21,7 +22,7 @@ function Header() {
         </div>
       </div>
       <div className="flex grow items-center justify-end sm:hidden">
-        <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+        <Popover.Button className="inline-flex items-center justify-center rounded-md  p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
           <span className="sr-only">Open menu</span>
           <RiMenuLine className="h-6 w-6" aria-hidden="true" />
         </Popover.Button>
@@ -43,7 +44,7 @@ function Header() {
           <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 ">
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
-                <h1 className="font-bold text-black"> Zak's Art Studio</h1>
+                <h1 className="font-bold text-black">Zachary Zeoli</h1>
                 <div className="-mr-2">
                   <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                     <span className="sr-only">Close Menu</span>

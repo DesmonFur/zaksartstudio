@@ -11,6 +11,8 @@ import { sanityClient, urlFor } from "../../lib/sanity";
 import { createClient } from "next-sanity";
 import Image from "next/image";
 import ArtPiece from "./ArtPiece";
+import { PortableText } from "@portabletext/react";
+
 import { XMarkIcon } from "@heroicons/react/24/solid";
 function Artwork({ pieces }) {
   const [fullScreenGallery, setFullScreenGallery] = useState(false);
@@ -46,11 +48,22 @@ function Artwork({ pieces }) {
   const closeFullScreenGallery = () => {
     setFullScreenGallery(false);
   };
+  const components = {
+    list: {
+      // Ex. 1: customizing common list types
+      bullet: ({ children }) => <ul className="mt-xl">{children}</ul>,
+      number: ({ children }) => <ol className="mt-lg">{children}</ol>,
 
+      // Ex. 2: rendering custom lists
+      checkmarks: ({ children }) => (
+        <ol className="m-auto text-lg">{children}</ol>
+      ),
+    },
+  };
   return (
     <div className="font-climateCrisis ">
-      <h3 className="top-12 mx-auto w-[90%] animate-pulse text-center  font-playFairDisplay text-2xl tracking-[15px] text-[#F7AB0A]">
-        Find your next favorite piece
+      <h3 className="top-12 mx-auto w-[90%] animate-pulse text-center  font-playFairDisplay text-2xl tracking-[15px] text-white">
+        Tap image for Details
       </h3>{" "}
       <main className=" ">
         <div className=" mt-12 flex flex-col  flex-wrap items-center justify-center  gap-12 gap-x-[2vw] sm:flex-row ">
@@ -115,12 +128,12 @@ function Artwork({ pieces }) {
                           aria-hidden="true"
                           onClick={() => setFullScreenGallery(false)}
                         ></XMarkIcon>
-                        <div className="relative mx-auto flex h-[90%]  flex-col items-center justify-around">
+                        <div className="relative mx-auto flex h-[90%]  flex-col items-center justify-around md:flex-row">
                           <div
                             className="mx-auto flex  items-center justify-between"
                             onClick={() => setPiece(currentPiece, currentIndex)}
                           >
-                            <div className=" mt-2 flex w-[18rem] flex-col text-center text-white sm:h-64 sm:w-64 md:h-[20rem] md:w-[20rem] lg:mt-12 lg:h-[25rem] lg:w-[25rem] ">
+                            <div className=" mt-2 flex w-[18rem] flex-col text-center text-white sm:h-64 sm:w-64 md:h-[25rem] md:w-[20rem] lg:h-[30rem] lg:w-[25rem] ">
                               <Image
                                 src={urlFor(currentMainImage).url()}
                                 layout=""
@@ -148,16 +161,22 @@ function Artwork({ pieces }) {
                             )}
                           </div>
                           {/* piece info */}
-                          <div className=" mb-24 h-[30%] text-center text-[#fefefe] md:mt-2 lg:h-full">
+                          <div className=" md: mb-24 h-[30%] text-center text-[#fefefe] md:m-0 md:mt-2 md:h-[35rem] lg:h-full">
                             <div className="flex flex-col items-center justify-center ">
                               <div className=" absolute right-0 left-0 top-[90%] border-t-4 border-white md:mx-auto md:w-[50%]"></div>
                               <ul>
                                 {currentPiece.description && (
                                   <li className="h-30 mx-auto mt-10 w-[100%]  overflow-y-auto text-lg sm:w-[70%] sm:text-xl md:w-[70%] md:text-xl">
-                                    {
+                                    {/* {
                                       currentPiece.description[0].children[0]
                                         .text
-                                    }
+                                    } */}
+                                    <div className=" h-[6rem] overflow-y-auto md:h-[24rem] ">
+                                      <PortableText
+                                        value={currentPiece.description}
+                                        components={components}
+                                      />
+                                    </div>
                                   </li>
                                 )}
                                 {currentPiece.defaultProductVariant.grams >=
@@ -186,7 +205,7 @@ function Artwork({ pieces }) {
                               </ul>
                             </div>
                           </div>
-                          <div className="">
+                          <div className="absolute bottom-0">
                             <a
                               href={
                                 currentPiece.defaultProductVariant.paymentLink
