@@ -29,7 +29,7 @@ function HomePage({ pieces }) {
       <div className="flex h-[90vh] w-full ">
         <div className="flex-1 bg-heroMobile bg-cover bg-center bg-no-repeat  sm:bg-hero">
           <Header />
-          <div className=" absolute right-0 left-0 bottom-[12vh] mx-auto w-[8%] animate-pulse text-white ">
+          <div className=" absolute right-0 left-0 bottom-[12vh] mx-auto w-[8%] animate-pulse text-white sm:hidden ">
             <BsChevronDown size={40} />
           </div>
         </div>
