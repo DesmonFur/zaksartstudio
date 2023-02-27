@@ -18,6 +18,9 @@ function Header() {
         <div className="hidden items-end justify-end gap-2 sm:flex md:gap-24">
           <Link href="/">Home</Link>
           {/* <Link href="/about">About</Link> */}
+          <Link className="" href="shipping">
+            Shipping
+          </Link>
           <Link href="/contact">Contact</Link>
         </div>
       </div>
@@ -75,6 +78,12 @@ function Header() {
                     href="contact"
                   >
                     Contact
+                  </Link>
+                  <Link
+                    className="px-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+                    href="shipping"
+                  >
+                    Shipping
                   </Link>
                 </nav>
               </div>
