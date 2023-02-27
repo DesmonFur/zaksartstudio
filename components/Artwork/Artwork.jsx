@@ -65,7 +65,7 @@ function Artwork({ pieces }) {
   return (
     <div className="font-climateCrisis ">
       <h3 className="top-12 mx-auto w-[90%] text-center  font-playFairDisplay text-2xl tracking-[15px] text-white">
-        Tap paintings for Details
+        Tap Paintings for Details
       </h3>{" "}
       <main className=" ">
         <div className=" mt-12 flex flex-col  flex-wrap items-center justify-center  gap-12 gap-x-[2vw] sm:flex-row ">
